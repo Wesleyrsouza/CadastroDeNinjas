@@ -1,5 +1,6 @@
-package com.CodeMute.CadastroDeNinjas;
+package com.CodeMute.CadastroDeNinjas.Ninjas;
 
+import com.CodeMute.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -12,6 +13,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private List<MissoesModel>missoes;
 
     public NinjaModel(String nome, String email, int idade) {
         this.nome = nome;
